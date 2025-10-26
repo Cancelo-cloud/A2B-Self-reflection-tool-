@@ -378,5 +378,272 @@
     </div>
 
     <script>
-        const traits =
+        const traits = [
+            { id: 1, optimal: "Free will", hardwire: "Locus of Control", opposite: "Manipulated & Mind controlled by friends, family and the power to be." },
+            { id: 2, optimal: "Bounce back from everything", hardwire: "ZO, Locus of Control", opposite: "Maladaptive" },
+            { id: 3, optimal: "Self-agent: own mind, food, money management and behaviour", hardwire: "Locus of Control", opposite: "Other's agent: Allowed mind capture: Vaccine implanted Graphene oxide receptors, neuroelectronic-signal receiver Transhuman (DARPA)" },
+            { id: 4, optimal: "Good Listener", hardwire: "MOM", opposite: "Interrupts, distracted, dismissive" },
+            { id: 5, optimal: "Seek to understand, think deeply", hardwire: "ZOZI", opposite: "Non thinker, Jump to conclusions, closed-minded" },
+            { id: 6, optimal: "Focussed", hardwire: "MOM", opposite: "Scattered, easily distracted" },
+            { id: 7, optimal: "Self-disciplined", hardwire: "MOM", opposite: "Impulsive, inconsistent" },
+            { id: 8, optimal: "Structured", hardwire: "ZI", opposite: "Chaotic, disorganized" },
+            { id: 9, optimal: "Proactive", hardwire: "ZOZI", opposite: "Shortsighted" },
+            { id: 10, optimal: "Learns from feedback, not personalizing", hardwire: "VIC, EGO, WIS", opposite: "Defensive, blame-shifting" },
+            { id: 11, optimal: "Takes ownership for own correct conception", hardwire: "Locus of Control", opposite: "Abdicates responsibility, acts without clarity" },
+            { id: 12, optimal: "Acquires full perspective", hardwire: "ZOZI", opposite: "Tunnel vision, lacks context" },
+            { id: 13, optimal: "Grows from mistakes", hardwire: "Locus of Control", opposite: "Avoids accountability, repeats errors" },
+            { id: 14, optimal: "Perseveres", hardwire: "Locus of Control", opposite: "Quits early, gives up easily" },
+            { id: 15, optimal: "Tenacious / Resilient", hardwire: "Locus of Control", opposite: "Fragile, easily discouraged" },
+            { id: 16, optimal: "Positive mindset", hardwire: "ATT", opposite: "Cynical, negative" },
+            { id: 17, optimal: "Overcomes trauma", hardwire: "VIC", opposite: "Remains stuck, avoids healing" },
+            { id: 18, optimal: "Victorious", hardwire: "VIC", opposite: "Defeated mindset, powerless" },
+            { id: 19, optimal: "Outsmarts negatives", hardwire: "ZOZI", opposite: "Succumbs to negativity" },
+            { id: 20, optimal: "Emotionally intelligent. Emotionally self-regulated.", hardwire: "ZOZI", opposite: "Emotionally unconscious incompetent (A0-A2) unregulated" },
+            { id: 21, optimal: "Loveable / Empathetic / Compassionate", hardwire: "ZOZI", opposite: "Cold, indifferent, judgmental" },
+            { id: 22, optimal: "Tough love", hardwire: "VIC", opposite: "Enabling dependency & tolerating indulgence" },
+            { id: 23, optimal: "Humility", hardwire: "EGO", opposite: "Arrogance, superiority" },
+            { id: 24, optimal: "Righteousness and goodness", hardwire: "ZOZI", opposite: "Evil" },
+            { id: 25, optimal: "Independent", hardwire: "Locus of Control", opposite: "Dependent, clingy" },
+            { id: 26, optimal: "Independent free thinker", hardwire: "Locus of Control", opposite: "Conformist, influenced by others" },
+            { id: 27, optimal: "Active / High movement", hardwire: "ZOZI, Locus of Control, MOM", opposite: "Lethargic, inactive" },
+            { id: 28, optimal: "Ambitious", hardwire: "ZOZI, Locus of Control, MOM", opposite: "Complacent, aimless" },
+            { id: 29, optimal: "Initiative / Self-driven", hardwire: "ZOZI, Locus of Control, MOM", opposite: "Reluctant, needs external prompting" },
+            { id: 30, optimal: "Experiential learner", hardwire: "ZOZI, Locus of Control", opposite: "Passive absorber, avoids practical engagement" },
+            { id: 31, optimal: "Lives outside comfort zone", hardwire: "ZOZI, Locus of Control, MOM", opposite: "Avoids risk, clings to familiarity" },
+            { id: 32, optimal: "Funny", hardwire: "ZOZI", opposite: "Serious, rigid" },
+            { id: 33, optimal: "Adventurous", hardwire: "ZOZI, Locus of Control, MOM", opposite: "Fearful, risk-averse" },
+            { id: 34, optimal: "Forgiving", hardwire: "VEN", opposite: "Bitter, holds grudges" },
+            { id: 35, optimal: "Solution-oriented", hardwire: "ZOZI, Locus of Control", opposite: "Problem-focused, defeatist" },
+            { id: 36, optimal: "Enabling beliefs", hardwire: "", opposite: "Limiting beliefs, self-imposed constraints" },
+            { id: 37, optimal: "Motivated", hardwire: "", opposite: "Apathetic, demotivated" },
+            { id: 38, optimal: "Response-able", hardwire: "", opposite: "Avoidant, helpless" },
+            { id: 39, optimal: "Does the right thing", hardwire: "", opposite: "Neglects ethical responsibility" },
+            { id: 40, optimal: "Self-confident", hardwire: "", opposite: "Self-doubt, insecure" },
+            { id: 41, optimal: "Self-belief", hardwire: "", opposite: "Disempowered, unsure of potential" },
+            { id: 42, optimal: "Self-love", hardwire: "", opposite: "Self-loathing, neglectful" },
+            { id: 43, optimal: "Persistent", hardwire: "", opposite: "Easily discouraged, inconsistent" },
+            { id: 44, optimal: "Courageous", hardwire: "", opposite: "Fearful, avoidant" },
+            { id: 45, optimal: "Stands for truth", hardwire: "", opposite: "Compromises values, dishonest" },
+            { id: 46, optimal: "Not gullible", hardwire: "", opposite: "Easily deceived, naive" },
+            { id: 47, optimal: "Low fear", hardwire: "", opposite: "High anxiety, overwhelmed" },
+            { id: 48, optimal: "True to self", hardwire: "", opposite: "Pretentious, shape-shifting" },
+            { id: 49, optimal: "Observant / Conscious", hardwire: "", opposite: "Oblivious, unaware" },
+            { id: 50, optimal: "Responds ably", hardwire: "", opposite: "Reacts poorly, overwhelmed" },
+            { id: 51, optimal: "Committed", hardwire: "ZIZO, ATT", opposite: "Unreliable, non-committal" },
+            { id: 52, optimal: "Has a vision", hardwire: "ZOZI", opposite: "Directionless, shortsighted" },
+            { id: 53, optimal: "Patient", hardwire: "ATT", opposite: "Impatient, intolerant" },
+            { id: 54, optimal: "Kind", hardwire: "ZO", opposite: "Harsh, unkind" },
+            { id: 55, optimal: "Passionate", hardwire: "ZO", opposite: "Apathetic, disengaged" },
+            { id: 56, optimal: "Bold", hardwire: "Locus of Control", opposite: "Timid, hesitant" },
+            { id: 57, optimal: "Boundaries", hardwire: "ZI", opposite: "Overextending, permissive" },
+            { id: 58, optimal: "Brave", hardwire: "ZO", opposite: "Cowardly" },
+            { id: 59, optimal: "Leader", hardwire: "ZO", opposite: "Follower, indecisive" },
+            { id: 60, optimal: "Achieves sustainability", hardwire: "ZIZO", opposite: "Wasteful, short-term mindset" },
+            { id: 61, optimal: "Achieves wellbeing", hardwire: "ZO", opposite: "Neglects health, burnout-prone" },
+            { id: 62, optimal: "Enabling beliefs", hardwire: "LIB", opposite: "Limiting, fixed mindset" },
+            { id: 63, optimal: "Extraordinary", hardwire: "ZO", opposite: "Mediocre, uninspired" },
+            { id: 64, optimal: '"I can" mindset', hardwire: "Locus of Control", opposite: '"I can\'t" defeatism' },
+            { id: 65, optimal: "Happiness maker", hardwire: "ZO", opposite: "Joyless, drains positivity" },
+            { id: 66, optimal: "Speaks wisdom", hardwire: "ZOZI", opposite: "Thoughtless, speaks without insight" },
+            { id: 67, optimal: "Outspoken on evil", hardwire: "Locus of Control, VIC, EGO, WIS", opposite: "Silent, complicit, evil prospers" },
+            { id: 68, optimal: "Communicates clearly for all", hardwire: "ZIZO", opposite: "Confusing, exclusive language" },
+            { id: 69, optimal: "Honest / Transparent", hardwire: "WIS", opposite: "Secretive, deceptive" },
+            { id: 70, optimal: "Trustworthy", hardwire: "ZI, EGO", opposite: "Unreliable, manipulative" },
+            { id: 71, optimal: "Longevity / Health / Fitness", hardwire: "MOM, OLM", opposite: "Self-neglect, poor wellness habits" },
+            { id: 72, optimal: "Agile", hardwire: "ZO, LIB", opposite: "Rigid, resistant to change" },
+            { id: 73, optimal: "Adaptive / Flexible", hardwire: "ZO", opposite: "Stubborn, fixed mindset" },
+            { id: 74, optimal: "Contributive", hardwire: "ZOZI", opposite: "Passive consumer, uninvolved" },
+            { id: 75, optimal: "Original / Novel", hardwire: "ZO", opposite: "Imitative, lacks innovation" },
+            { id: 76, optimal: "Asks: WHY?", hardwire: "ZO", opposite: "Asks What? Where? When? Quantities?" },
+            { id: 77, optimal: "Assertive: stands on its Patient & Free speech rights", hardwire: "Locus of Control", opposite: "Sheepishly follow protocols of authorities blindly" }
+        ];
+
+        let currentIndex = 0;
+        let responses = {};
+
+        function loadResponses() {
+            const saved = localStorage.getItem('oi-responses');
+            if (saved) {
+                responses = JSON.parse(saved);
+            }
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('oi-responses', JSON.stringify(responses));
+        }
+
+        function saveResponse() {
+            const oiLevel = document.getElementById('oi-level').value;
+            const comments = document.getElementById('comments').value;
+            
+            responses[traits[currentIndex].id] = {
+                oiLevel: oiLevel,
+                comment: comments
+            };
+            
+            saveToStorage();
+            updateProgress();
+        }
+
+        function displayTrait() {
+            const trait = traits[currentIndex];
+            
+            document.getElementById('trait-number').textContent = `Optimal Trait #${trait.id}`;
+            document.getElementById('trait-optimal').textContent = trait.optimal;
+            document.getElementById('trait-opposite').textContent = trait.opposite;
+            
+            if (trait.hardwire) {
+                document.getElementById('hardwire-box').style.display = 'block';
+
+                const hardwireElem = document.getElementById('trait-hardwire');
+                hardwireElem.textContent = trait.hardwire;
+
+                if(trait.hardwire.includes("Locus of Control")) {
+                    hardwireElem.classList.add('hardwire-label-locus');
+                } else {
+                    hardwireElem.classList.remove('hardwire-label-locus');
+                }
+            } else {
+                document.getElementById('hardwire-box').style.display = 'none';
+            }
+
+            const response = responses[trait.id] || { oiLevel: '', comment: '' };
+            document.getElementById('oi-level').value = response.oiLevel;
+            document.getElementById('comments').value = response.comment;
+
+            document.getElementById('prev-btn').disabled = currentIndex === 0;
+            document.getElementById('next-btn').disabled = currentIndex === traits.length - 1;
+
+            document.getElementById('completion-notice').style.display = 
+                currentIndex === traits.length - 1 ? 'block' : 'none';
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progressPercent = ((currentIndex + 1) / traits.length) * 100;
+            document.getElementById('progress-fill').style.width = progressPercent + '%';
+            document.getElementById('progress-text').textContent = 
+                `Trait ${currentIndex + 1} of ${traits.length}`;
+
+            const completedCount = Object.keys(responses).filter(key => 
+                responses[key].oiLevel || responses[key].comment
+            ).length;
+            document.getElementById('completed-count').textContent = `${completedCount} completed`;
+        }
+
+        function nextTrait() {
+            if (currentIndex < traits.length - 1) {
+                currentIndex++;
+                displayTrait();
+            }
+        }
+
+        function previousTrait() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayTrait();
+            }
+        }
+
+        function exportResponses() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            let yPosition = 20;
+            const pageHeight = doc.internal.pageSize.height;
+            const margin = 20;
+            const maxWidth = 170;
+            
+            // Title
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text('OPTIMAL HUMAN TRAITS', margin, yPosition);
+            yPosition += 8;
+            doc.text('Self-Assessment Results', margin, yPosition);
+            yPosition += 10;
+            
+            // Date
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, yPosition);
+            yPosition += 15;
+            
+            // Results
+            traits.forEach(trait => {
+                const response = responses[trait.id];
+                if (response && (response.oiLevel || response.comment)) {
+                    // Check if we need a new page
+                    if (yPosition > pageHeight - 60) {
+                        doc.addPage();
+                        yPosition = 20;
+                    }
+                    
+                    // Trait number and name
+                    doc.setFontSize(12);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`#${trait.id} - ${trait.optimal}`, margin, yPosition);
+                    yPosition += 7;
+                    
+                    // Opposite
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'italic');
+                    const oppositeLines = doc.splitTextToSize(`Opposite: ${trait.opposite}`, maxWidth);
+                    doc.text(oppositeLines, margin, yPosition);
+                    yPosition += oppositeLines.length * 5;
+                    
+                    // Hardwire
+                    if (trait.hardwire) {
+                        doc.setFont(undefined, 'normal');
+                        doc.text(`Hardwire: ${trait.hardwire}`, margin, yPosition);
+                        yPosition += 5;
+                    }
+                    
+                    // OI Level
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`OI Level: `, margin, yPosition);
+                    doc.setFont(undefined, 'normal');
+                    doc.text(response.oiLevel || 'Not rated', margin + 20, yPosition);
+                    yPosition += 7;
+                    
+                    // Comments
+                    if (response.comment) {
+                        doc.setFont(undefined, 'bold');
+                        doc.text('Comments:', margin, yPosition);
+                        yPosition += 5;
+                        doc.setFont(undefined, 'normal');
+                        const commentLines = doc.splitTextToSize(response.comment, maxWidth);
+                        doc.text(commentLines, margin, yPosition);
+                        yPosition += commentLines.length * 5;
+                    }
+                    
+                    yPosition += 8;
+                }
+            });
+            
+            // Footer on last page
+            doc.setFontSize(8);
+            doc.setTextColor(100);
+            doc.text('www.a2btransformation.com • vivienne@a2btransformation.com', margin, pageHeight - 10);
+            
+            // Save
+            doc.save(`OI-Assessment-${new Date().toISOString().split('T')[0]}.pdf`);
+        }
+
+        function resetAll() {
+            if (confirm('Are you sure you want to clear all your responses? This cannot be undone.')) {
+                responses = {};
+                localStorage.removeItem('oi-responses');
+                currentIndex = 0;
+                displayTrait();
+            }
+        }
+
+        // Initialize
+        loadResponses();
+        displayTrait();
+    </script>
+</body>
+</html>
+
 
