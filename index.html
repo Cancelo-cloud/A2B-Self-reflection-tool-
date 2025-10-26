@@ -13,7 +13,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f9fafb;
+            background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+            min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
         }
@@ -21,9 +22,9 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: #065f46;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
             padding: 40px;
         }
 
@@ -42,7 +43,7 @@
 
         h1 {
             font-size: 24px;
-            color: #1f2937;
+            color: #ffffff;
             font-weight: 700;
         }
 
@@ -84,7 +85,7 @@
 
         .progress-info {
             font-size: 14px;
-            color: #6b7280;
+            color: #d1fae5;
             margin-bottom: 10px;
         }
 
@@ -113,17 +114,17 @@
         .trait-title {
             font-size: 20px;
             font-weight: 600;
-            color: #059669;
+            color: #6ee7b7;
             margin-bottom: 8px;
         }
 
         .trait-text {
             font-size: 16px;
-            color: #1f2937;
+            color: #ffffff;
         }
 
         .hardwire-box {
-            background: #f3f4f6;
+            background: #047857;
             padding: 12px;
             border-radius: 6px;
             font-size: 14px;
@@ -132,22 +133,22 @@
 
         .hardwire-label {
             font-weight: 600;
-            color: #6b7280;
+            color: #d1fae5;
         }
 
         .opposite-title {
             font-size: 16px;
             font-weight: 600;
-            color: #dc2626;
+            color: #fca5a5;
             margin-bottom: 8px;
         }
 
         .opposite-text {
-            color: #4b5563;
+            color: #ffffff;
         }
 
         .input-section {
-            border-top: 2px solid #f3f4f6;
+            border-top: 2px solid #047857;
             padding-top: 24px;
             margin-top: 24px;
         }
@@ -155,7 +156,7 @@
         .input-label {
             font-size: 16px;
             font-weight: 600;
-            color: #1f2937;
+            color: #ffffff;
             margin-bottom: 12px;
             display: block;
         }
@@ -186,7 +187,7 @@
             justify-content: space-between;
             margin-top: 40px;
             padding-top: 24px;
-            border-top: 2px solid #f3f4f6;
+            border-top: 2px solid #047857;
         }
 
         .btn-nav {
@@ -240,7 +241,7 @@
             margin-top: 30px;
             text-align: center;
             font-size: 13px;
-            color: #6b7280;
+            color: #d1fae5;
         }
 
         .footer p {
@@ -275,6 +276,7 @@
             }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -290,6 +292,16 @@
                     </button>
                 </div>
             </div>
+            
+            <div style="background: #047857; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #6ee7b7;">
+                <p style="color: #ffffff; line-height: 1.8; margin-bottom: 12px;">
+                    Holistic Human traits that ripple across emotional, cognitive, behavioral, and spiritual domains. Exploring the opposites (or shadow states) of each not only reveals areas of limitation, but also a wake-up call for potential transformation.
+                </p>
+                <p style="color: #d1fae5; font-style: italic; font-weight: 600;">
+                    Be honest with yourself. This reflection is for your growth and transformation.
+                </p>
+            </div>
+            
             <div class="progress-info">
                 <span id="progress-text">Trait 1 of 77</span> • <span id="completed-count">0 completed</span>
             </div>
@@ -316,13 +328,17 @@
 
             <div class="input-section">
                 <label class="input-label">My OI Level</label>
-                <input 
-                    type="text" 
+                <select 
                     class="input-field" 
                     id="oi-level" 
-                    placeholder="Enter your OI level..."
                     onchange="saveResponse()"
                 >
+                    <option value="">Select your current level...</option>
+                    <option value="Low">Low</option>
+                    <option value="Developing">Developing</option>
+                    <option value="Competent">Competent</option>
+                    <option value="Mastery">Mastery</option>
+                </select>
             </div>
 
             <div class="input-section">
@@ -517,31 +533,87 @@
         }
 
         function exportResponses() {
-            let output = 'OPTIMAL HUMAN TRAITS - SELF-ASSESSMENT RESULTS\n';
-            output += '='.repeat(60) + '\n\n';
-            output += `Date: ${new Date().toLocaleDateString()}\n\n`;
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
             
+            let yPosition = 20;
+            const pageHeight = doc.internal.pageSize.height;
+            const margin = 20;
+            const maxWidth = 170;
+            
+            // Title
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text('OPTIMAL HUMAN TRAITS', margin, yPosition);
+            yPosition += 8;
+            doc.text('Self-Assessment Results', margin, yPosition);
+            yPosition += 10;
+            
+            // Date
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, yPosition);
+            yPosition += 15;
+            
+            // Results
             traits.forEach(trait => {
                 const response = responses[trait.id];
                 if (response && (response.oiLevel || response.comment)) {
-                    output += `#${trait.id} - ${trait.optimal}\n`;
-                    output += `Opposite: ${trait.opposite}\n`;
-                    if (trait.hardwire) output += `Hardwire: ${trait.hardwire}\n`;
-                    output += `OI Level: ${response.oiLevel || 'Not rated'}\n`;
-                    output += `Comments: ${response.comment || 'No comments'}\n`;
-                    output += '\n' + '-'.repeat(60) + '\n\n';
+                    // Check if we need a new page
+                    if (yPosition > pageHeight - 60) {
+                        doc.addPage();
+                        yPosition = 20;
+                    }
+                    
+                    // Trait number and name
+                    doc.setFontSize(12);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`#${trait.id} - ${trait.optimal}`, margin, yPosition);
+                    yPosition += 7;
+                    
+                    // Opposite
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'italic');
+                    const oppositeLines = doc.splitTextToSize(`Opposite: ${trait.opposite}`, maxWidth);
+                    doc.text(oppositeLines, margin, yPosition);
+                    yPosition += oppositeLines.length * 5;
+                    
+                    // Hardwire
+                    if (trait.hardwire) {
+                        doc.setFont(undefined, 'normal');
+                        doc.text(`Hardwire: ${trait.hardwire}`, margin, yPosition);
+                        yPosition += 5;
+                    }
+                    
+                    // OI Level
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`OI Level: `, margin, yPosition);
+                    doc.setFont(undefined, 'normal');
+                    doc.text(response.oiLevel || 'Not rated', margin + 20, yPosition);
+                    yPosition += 7;
+                    
+                    // Comments
+                    if (response.comment) {
+                        doc.setFont(undefined, 'bold');
+                        doc.text('Comments:', margin, yPosition);
+                        yPosition += 5;
+                        doc.setFont(undefined, 'normal');
+                        const commentLines = doc.splitTextToSize(response.comment, maxWidth);
+                        doc.text(commentLines, margin, yPosition);
+                        yPosition += commentLines.length * 5;
+                    }
+                    
+                    yPosition += 8;
                 }
             });
-
-            const blob = new Blob([output], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `OI-Assessment-${new Date().toISOString().split('T')[0]}.txt`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            
+            // Footer on last page
+            doc.setFontSize(8);
+            doc.setTextColor(100);
+            doc.text('www.a2btransformation.com • vivienne@a2btransformation.com', margin, pageHeight - 10);
+            
+            // Save
+            doc.save(`OI-Assessment-${new Date().toISOString().split('T')[0]}.pdf`);
         }
 
         function resetAll() {
