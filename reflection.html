@@ -291,4 +291,92 @@
                 <h1>Optimal Human Traits Reflection</h1>
                 <div class="button-group">
                     <button class="btn btn-export" onclick="exportResponses()">
-                        <span>📥</span
+                        <span>📥</span> Export
+                    </button>
+                    <button class="btn btn-reset" onclick="resetAll()">
+                        <span>🔄</span> Reset
+                    </button>
+                </div>
+            </div>
+            
+            <div style="background: #047857; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #6ee7b7;">
+                <p style="color: #ffffff; line-height: 1.8; margin-bottom: 12px;">
+                    Holistic Human traits that ripple across emotional, cognitive, behavioral, and spiritual domains. Exploring the opposites (or shadow states) of each not only reveals areas of limitation, but also a wake-up call for potential transformation.
+                </p>
+                <p style="color: #d1fae5; font-style: italic; font-weight: 600;">
+                    Be honest with yourself. This reflection is for your growth and transformation.
+                </p>
+            </div>
+            
+            <div class="progress-info">
+                <span id="progress-text">Trait 1 of 77</span> • <span id="completed-count">0 completed</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="trait-section">
+                <h2 class="trait-title" id="trait-number">Optimal Trait #1</h2>
+                <p class="trait-text" id="trait-optimal"></p>
+            </div>
+
+            <div class="hardwire-box" id="hardwire-box" style="display: none;">
+                <span class="hardwire-label">Hardwire: </span>
+                <span id="trait-hardwire"></span>
+            </div>
+
+            <div class="trait-section">
+                <h3 class="opposite-title">Opposite / Limiting Response</h3>
+                <p class="opposite-text" id="trait-opposite"></p>
+            </div>
+
+            <div class="input-section">
+                <label class="input-label">My OI Level</label>
+                <select 
+                    class="input-field" 
+                    id="oi-level" 
+                    onchange="saveResponse()"
+                >
+                    <option value="">Select your current level...</option>
+                    <option value="Low">Low</option>
+                    <option value="Developing">Developing</option>
+                    <option value="Competent">Competent</option>
+                    <option value="Mastery">Mastery</option>
+                </select>
+            </div>
+
+            <div class="input-section">
+                <label class="input-label">Comments</label>
+                <textarea 
+                    class="input-field" 
+                    id="comments" 
+                    placeholder="Write your reflections, goals, or observations..."
+                    onchange="saveResponse()"
+                ></textarea>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="btn-nav btn-prev" onclick="previousTrait()" id="prev-btn">
+                <span>←</span> Previous
+            </button>
+            <button class="btn-nav btn-next" onclick="nextTrait()" id="next-btn">
+                Next <span>→</span>
+            </button>
+        </div>
+
+        <div class="completion-notice" id="completion-notice" style="display: none;">
+            🎉 You've reached the final trait! Click Export to download your complete assessment.
+        </div>
+
+        <div class="footer">
+            <p>www.a2btransformation.com • vivienne@a2btransformation.com</p>
+            <p style="font-size: 11px; margin-top: 12px;">Your responses are automatically saved in your browser.</p>
+        </div>
+    </div>
+
+    <script>
+        const traits =
+
