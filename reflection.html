@@ -129,17 +129,12 @@
             border-radius: 6px;
             font-size: 14px;
             margin: 20px 0;
+            color: #ffffff;
         }
 
         .hardwire-label {
             font-weight: 600;
             color: #d1fae5;
-        }
-
-        /* New style for Locus of Control hardwire */
-        .hardwire-label-locus {
-            color: #ffffff; /* white color */
-            font-weight: 600;
         }
 
         .opposite-title {
@@ -254,11 +249,6 @@
             margin: 8px 0;
         }
 
-        .icon {
-            width: 16px;
-            height: 16px;
-        }
-
         @media (max-width: 640px) {
             .container {
                 padding: 20px;
@@ -309,7 +299,7 @@
             </div>
             
             <div class="progress-info">
-                <span id="progress-text">Trait 1 of 77</span> • <span id="completed-count">0 completed</span>
+                <span id="progress-text">Trait 1 of 50</span> • <span id="completed-count">0 completed</span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progress-fill"></div>
@@ -393,12 +383,11 @@
             "LIB": "Limited Beliefs",
             "VEN": "Vengeance",
             "EGO": "Egotism",
-            "WIS": "Wolf in Sheep’s Clothing",
+            "WIS": "Wolf in Sheep's Clothing",
             "HEA": "Heartless"
         };
 
         function expandHardwire(abbrString) {
-            // Split by commas and spaces, trim each, and map abbreviations to full names
             return abbrString.split(',').map(part => {
                 const trimmedPart = part.trim();
                 return hardwireMap[trimmedPart] || trimmedPart;
@@ -407,82 +396,55 @@
 
         const traits = [
             { id: 1, optimal: "Free will", hardwire: "LOC", opposite: "Manipulated & Mind controlled by friends, family and the power to be." },
-            { id: 2, optimal: "Bounce back from everything", hardwire: "ZIZO, LOC", opposite: "Maladaptive" },
-            { id: 3, optimal: "Self-agent: own mind, food, money management and behaviour", hardwire: "LOC", opposite: "Other's agent: Allowed mind capture: Vaccine implanted Graphene oxide receptors, neuroelectronic-signal receiver Transhuman (DARPA)" },
+            { id: 2, optimal: "Resilient / Bounce back from everything", hardwire: "ZIZO, LOC", opposite: "Fragile, easily discouraged, maladaptive" },
+            { id: 3, optimal: "Self-agent: own mind, food, money management and behaviour", hardwire: "LOC", opposite: "Other's agent: Allowed mind capture" },
             { id: 4, optimal: "Good Listener", hardwire: "MOM", opposite: "Interrupts, distracted, dismissive" },
             { id: 5, optimal: "Seek to understand, think deeply", hardwire: "ZIZO", opposite: "Non thinker, Jump to conclusions, closed-minded" },
             { id: 6, optimal: "Focussed", hardwire: "MOM", opposite: "Scattered, easily distracted" },
             { id: 7, optimal: "Self-disciplined", hardwire: "MOM", opposite: "Impulsive, inconsistent" },
-            { id: 8, optimal: "Structured", hardwire: "ZIZO", opposite: "Chaotic, disorganized" },
-            { id: 9, optimal: "Proactive", hardwire: "ZIZO", opposite: "Shortsighted" },
-            { id: 10, optimal: "Learns from feedback, not personalizing", hardwire: "VIC, EGO, WIS", opposite: "Defensive, blame-shifting" },
-            { id: 11, optimal: "Takes ownership for own correct conception", hardwire: "LOC", opposite: "Abdicates responsibility, acts without clarity" },
-            { id: 12, optimal: "Acquires full perspective", hardwire: "ZIZO", opposite: "Tunnel vision, lacks context" },
-            { id: 13, optimal: "Grows from mistakes", hardwire: "LOC", opposite: "Avoids accountability, repeats errors" },
-            { id: 14, optimal: "Perseveres", hardwire: "LOC", opposite: "Quits early, gives up easily" },
-            { id: 15, optimal: "Tenacious / Resilient", hardwire: "LOC", opposite: "Fragile, easily discouraged" },
-            { id: 16, optimal: "Positive mindset", hardwire: "ATT", opposite: "Cynical, negative" },
-            { id: 17, optimal: "Overcomes trauma", hardwire: "VIC", opposite: "Remains stuck, avoids healing" },
-            { id: 18, optimal: "Victorious", hardwire: "VIC", opposite: "Defeated mindset, powerless" },
-            { id: 19, optimal: "Outsmarts negatives", hardwire: "ZIZO", opposite: "Succumbs to negativity" },
-            { id: 20, optimal: "Emotionally intelligent. Emotionally self-regulated.", hardwire: "ZIZO", opposite: "Emotionally unconscious incompetent (A0-A2) unregulated" },
-            { id: 21, optimal: "Loveable / Empathetic / Compassionate", hardwire: "ZIZO", opposite: "Cold, indifferent, judgmental" },
-            { id: 22, optimal: "Tough love", hardwire: "VIC", opposite: "Enabling dependency & tolerating indulgence" },
-            { id: 23, optimal: "Humility", hardwire: "EGO", opposite: "Arrogance, superiority" },
-            { id: 24, optimal: "Righteousness and goodness", hardwire: "ZIZO", opposite: "Evil" },
-            { id: 25, optimal: "Independent", hardwire: "LOC", opposite: "Dependent, clingy" },
-            { id: 26, optimal: "Independent free thinker", hardwire: "LOC", opposite: "Conformist, influenced by others" },
-            { id: 27, optimal: "Active / High movement", hardwire: "ZIZO, LOC, MOM", opposite: "Lethargic, inactive" },
-            { id: 28, optimal: "Ambitious", hardwire: "ZIZO, LOC, MOM", opposite: "Complacent, aimless" },
-            { id: 29, optimal: "Initiative / Self-driven", hardwire: "ZIZO, LOC, MOM", opposite: "Reluctant, needs external prompting" },
-            { id: 30, optimal: "Experiential learner", hardwire: "ZIZO, LOC", opposite: "Passive absorber, avoids practical engagement" },
-            { id: 31, optimal: "Lives outside comfort zone", hardwire: "ZIZO, LOC, MOM", opposite: "Avoids risk, clings to familiarity" },
-            { id: 32, optimal: "Funny", hardwire: "ZIZO", opposite: "Serious, rigid" },
-            { id: 33, optimal: "Adventurous", hardwire: "ZIZO, LOC, MOM", opposite: "Fearful, risk-averse" },
-            { id: 34, optimal: "Forgiving", hardwire: "VEN", opposite: "Bitter, holds grudges" },
-            { id: 35, optimal: "Solution-oriented", hardwire: "ZIZO, LOC", opposite: "Problem-focused, defeatist" },
-            { id: 36, optimal: "Enabling beliefs", hardwire: "", opposite: "Limiting beliefs, self-imposed constraints" },
-            { id: 37, optimal: "Motivated", hardwire: "", opposite: "Apathetic, demotivated" },
-            { id: 38, optimal: "Response-able", hardwire: "", opposite: "Avoidant, helpless" },
-            { id: 39, optimal: "Does the right thing", hardwire: "", opposite: "Neglects ethical responsibility" },
-            { id: 40, optimal: "Self-confident", hardwire: "", opposite: "Self-doubt, insecure" },
-            { id: 41, optimal: "Self-belief", hardwire: "", opposite: "Disempowered, unsure of potential" },
-            { id: 42, optimal: "Self-love", hardwire: "", opposite: "Self-loathing, neglectful" },
-            { id: 43, optimal: "Persistent", hardwire: "", opposite: "Easily discouraged, inconsistent" },
-            { id: 44, optimal: "Courageous", hardwire: "", opposite: "Fearful, avoidant" },
-            { id: 45, optimal: "Stands for truth", hardwire: "", opposite: "Compromises values, dishonest" },
-            { id: 46, optimal: "Not gullible", hardwire: "", opposite: "Easily deceived, naive" },
-            { id: 47, optimal: "Low fear", hardwire: "", opposite: "High anxiety, overwhelmed" },
-            { id: 48, optimal: "True to self", hardwire: "", opposite: "Pretentious, shape-shifting" },
-            { id: 49, optimal: "Observant / Conscious", hardwire: "", opposite: "Oblivious, unaware" },
-            { id: 50, optimal: "Responds ably", hardwire: "", opposite: "Reacts poorly, overwhelmed" },
-            { id: 51, optimal: "Committed", hardwire: "ZIZO, ATT", opposite: "Unreliable, non-committal" },
-            { id: 52, optimal: "Has a vision", hardwire: "ZIZO", opposite: "Directionless, shortsighted" },
-            { id: 53, optimal: "Patient", hardwire: "ATT", opposite: "Impatient, intolerant" },
-            { id: 54, optimal: "Kind", hardwire: "ZIZO", opposite: "Harsh, unkind" },
-            { id: 55, optimal: "Passionate", hardwire: "ZIZO", opposite: "Apathetic, disengaged" },
-            { id: 56, optimal: "Bold", hardwire: "LOC", opposite: "Timid, hesitant" },
-            { id: 57, optimal: "Boundaries", hardwire: "ZIZO", opposite: "Overextending, permissive" },
-            { id: 58, optimal: "Brave", hardwire: "ZIZO", opposite: "Cowardly" },
-            { id: 59, optimal: "Leader", hardwire: "ZIZO", opposite: "Follower, indecisive" },
-            { id: 60, optimal: "Achieves sustainability", hardwire: "ZIZO", opposite: "Wasteful, short-term mindset" },
-            { id: 61, optimal: "Achieves wellbeing", hardwire: "ZIZO", opposite: "Neglects health, burnout-prone" },
-            { id: 62, optimal: "Enabling beliefs", hardwire: "LIB", opposite: "Limiting, fixed mindset" },
-            { id: 63, optimal: "Extraordinary", hardwire: "ZIZO", opposite: "Mediocre, uninspired" },
-            { id: 64, optimal: '"I can" mindset', hardwire: "LOC", opposite: '"I can\'t" defeatism' },
-            { id: 65, optimal: "Happiness maker", hardwire: "ZIZO", opposite: "Joyless, drains positivity" },
-            { id: 66, optimal: "Speaks wisdom", hardwire: "ZIZO", opposite: "Thoughtless, speaks without insight" },
-            { id: 67, optimal: "Outspoken on evil", hardwire: "LOC, VIC, EGO, WIS", opposite: "Silent, complicit, evil prospers" },
-            { id: 68, optimal: "Communicates clearly for all", hardwire: "ZIZO", opposite: "Confusing, exclusive language" },
-            { id: 69, optimal: "Honest / Transparent", hardwire: "WIS", opposite: "Secretive, deceptive" },
-            { id: 70, optimal: "Trustworthy", hardwire: "ZIZO, EGO", opposite: "Unreliable, manipulative" },
-            { id: 71, optimal: "Longevity / Health / Fitness", hardwire: "MOM, OLM", opposite: "Self-neglect, poor wellness habits" },
-            { id: 72, optimal: "Agile", hardwire: "ZIZO, LIB", opposite: "Rigid, resistant to change" },
-            { id: 73, optimal: "Adaptive / Flexible", hardwire: "ZIZO", opposite: "Stubborn, fixed mindset" },
-            { id: 74, optimal: "Contributive", hardwire: "ZIZO", opposite: "Passive consumer, uninvolved" },
-            { id: 75, optimal: "Original / Novel", hardwire: "ZIZO", opposite: "Imitative, lacks innovation" },
-            { id: 76, optimal: "Asks: WHY?", hardwire: "ZIZO", opposite: "Asks What? Where? When? Quantities?" },
-            { id: 77, optimal: "Assertive: stands on its Patient & Free speech rights", hardwire: "LOC", opposite: "Sheepishly follow protocols of authorities blindly" }
+            { id: 8, optimal: "Structured & Proactive", hardwire: "ZIZO", opposite: "Chaotic, disorganized, shortsighted" },
+            { id: 9, optimal: "Learns from feedback, not personalizing", hardwire: "VIC, EGO, WIS", opposite: "Defensive, blame-shifting" },
+            { id: 10, optimal: "Takes ownership for own actions", hardwire: "LOC", opposite: "Abdicates responsibility, acts without clarity" },
+            { id: 11, optimal: "Acquires full perspective", hardwire: "ZIZO", opposite: "Tunnel vision, lacks context" },
+            { id: 12, optimal: "Grows from mistakes", hardwire: "LOC", opposite: "Avoids accountability, repeats errors" },
+            { id: 13, optimal: "Perseveres / Tenacious / Persistent", hardwire: "LOC", opposite: "Quits early, gives up easily, inconsistent" },
+            { id: 14, optimal: "Positive mindset", hardwire: "ATT", opposite: "Cynical, negative" },
+            { id: 15, optimal: "Overcomes trauma", hardwire: "VIC", opposite: "Remains stuck, avoids healing" },
+            { id: 16, optimal: "Victorious", hardwire: "VIC", opposite: "Defeated mindset, powerless" },
+            { id: 17, optimal: "Emotionally intelligent. Emotionally self-regulated.", hardwire: "ZIZO", opposite: "Emotionally unconscious incompetent (A0-A2) unregulated" },
+            { id: 18, optimal: "Loveable / Empathetic / Compassionate", hardwire: "ZIZO", opposite: "Cold, indifferent, judgmental" },
+            { id: 19, optimal: "Tough love", hardwire: "VIC", opposite: "Enabling dependency & tolerating indulgence" },
+            { id: 20, optimal: "Humility", hardwire: "EGO", opposite: "Arrogance, superiority" },
+            { id: 21, optimal: "Righteousness and goodness", hardwire: "ZIZO", opposite: "Evil" },
+            { id: 22, optimal: "Independent free thinker", hardwire: "LOC", opposite: "Dependent, conformist, influenced by others" },
+            { id: 23, optimal: "Active / High movement", hardwire: "ZIZO, LOC, MOM", opposite: "Lethargic, inactive" },
+            { id: 24, optimal: "Ambitious / Initiative / Self-driven", hardwire: "ZIZO, LOC, MOM", opposite: "Complacent, aimless, needs external prompting" },
+            { id: 25, optimal: "Experiential learner", hardwire: "ZIZO, LOC", opposite: "Passive absorber, avoids practical engagement" },
+            { id: 26, optimal: "Lives outside comfort zone / Adventurous", hardwire: "ZIZO, LOC, MOM", opposite: "Avoids risk, clings to familiarity, fearful" },
+            { id: 27, optimal: "Funny", hardwire: "ZIZO", opposite: "Serious, rigid" },
+            { id: 28, optimal: "Forgiving", hardwire: "VEN", opposite: "Bitter, holds grudges" },
+            { id: 29, optimal: "Solution-oriented", hardwire: "ZIZO, LOC", opposite: "Problem-focused, defeatist" },
+            { id: 30, optimal: "Enabling beliefs / Motivated", hardwire: "LIB", opposite: "Limiting beliefs, apathetic, demotivated" },
+            { id: 31, optimal: "Response-able / Does the right thing", hardwire: "LOC", opposite: "Avoidant, helpless, neglects ethical responsibility" },
+            { id: 32, optimal: "Self-confident / Self-belief", hardwire: "LOC", opposite: "Self-doubt, insecure, disempowered" },
+            { id: 33, optimal: "Self-love", hardwire: "", opposite: "Self-loathing, neglectful" },
+            { id: 34, optimal: "Courageous / Brave", hardwire: "LOC", opposite: "Fearful, avoidant, cowardly" },
+            { id: 35, optimal: "Stands for truth", hardwire: "WIS", opposite: "Compromises values, dishonest" },
+            { id: 36, optimal: "Not gullible", hardwire: "", opposite: "Easily deceived, naive" },
+            { id: 37, optimal: "Low fear", hardwire: "", opposite: "High anxiety, overwhelmed" },
+            { id: 38, optimal: "True to self", hardwire: "", opposite: "Pretentious, shape-shifting" },
+            { id: 39, optimal: "Observant / Conscious / Responds ably", hardwire: "ZIZO", opposite: "Oblivious, unaware, reacts poorly" },
+            { id: 40, optimal: "Committed", hardwire: "ZIZO, ATT", opposite: "Unreliable, non-committal" },
+            { id: 41, optimal: "Has a vision", hardwire: "ZIZO", opposite: "Directionless, shortsighted" },
+            { id: 42, optimal: "Patient", hardwire: "ATT", opposite: "Impatient, intolerant" },
+            { id: 43, optimal: "Kind / Passionate", hardwire: "ZIZO", opposite: "Harsh, unkind, apathetic" },
+            { id: 44, optimal: "Bold / Boundaries", hardwire: "LOC, ZIZO", opposite: "Timid, hesitant, overextending" },
+            { id: 45, optimal: "Leader", hardwire: "ZIZO", opposite: "Follower, indecisive" },
+            { id: 46, optimal: "Achieves sustainability / wellbeing", hardwire: "ZIZO", opposite: "Wasteful, neglects health, burnout-prone" },
+            { id: 47, optimal: '"I can" mindset / Extraordinary', hardwire: "LOC, ZIZO", opposite: '"I can\'t" defeatism, mediocre, uninspired' },
+            { id: 48, optimal: "Speaks wisdom / Outspoken on evil", hardwire: "ZIZO, LOC, VIC, EGO, WIS", opposite: "Thoughtless, silent on injustice, complicit" },
+            { id: 49, optimal: "Honest / Transparent / Trustworthy", hardwire: "WIS, ZIZO, EGO", opposite: "Secretive, deceptive, unreliable, manipulative" },
+            { id: 50, optimal: "Agile / Adaptive / Flexible", hardwire: "ZIZO, LIB", opposite: "Rigid, resistant to change, stubborn" }
         ];
 
         let currentIndex = 0;
@@ -521,18 +483,8 @@
             
             if (trait.hardwire) {
                 document.getElementById('hardwire-box').style.display = 'block';
-
-                const hardwireElem = document.getElementById('trait-hardwire');
-                // Expand each abbreviation to full name
                 const expandedHardwire = expandHardwire(trait.hardwire);
-                hardwireElem.textContent = expandedHardwire;
-
-                // Apply white color only if "Locus of Control" is included
-                if (expandedHardwire.includes("Locus of Control")) {
-                    hardwireElem.classList.add('hardwire-label-locus');
-                } else {
-                    hardwireElem.classList.remove('hardwire-label-locus');
-                }
+                document.getElementById('trait-hardwire').textContent = expandedHardwire;
             } else {
                 document.getElementById('hardwire-box').style.display = 'none';
             }
@@ -676,6 +628,3 @@
     </script>
 </body>
 </html>
-
-
-
